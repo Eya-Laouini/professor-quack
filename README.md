@@ -102,31 +102,31 @@ Google Cloud CLI (gcloud) installed.
 
 Python 3.9+.
 
-1. Clone the Repository
+**1. Clone the Repository**
 ```bash
 git clone [https://github.com/your-username/professor-quack.git](https://github.com/your-username/professor-quack.git)
 cd professor-quack
 ```
-2. Enable Google Cloud APIs
+**2. Enable Google Cloud APIs**
 Since this project relies on GCP services, you must enable the specific APIs:
 
 ```bash
 gcloud services enable aiplatform.googleapis.com run.googleapis.com firestore.googleapis.com
 ```
-3. Local Setup
-You must authenticate with Google Cloud so your local Python script can talk to Vertex AI.
+**3. Local Setup**
+You must authenticate with Google Cloud, so your local Python script can talk to Vertex AI.
 
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-# Authenticate with your Google Cloud user
+### Authenticate with your Google Cloud user
 ```bash
 gcloud auth application-default login
 ```
 
-# Run the app locally
+### Run the app locally
 ```bash
 python main.py
 ```
