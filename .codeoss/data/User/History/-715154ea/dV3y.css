@@ -1,0 +1,221 @@
+/* --- 1. GLOBAL RESET & VARS --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-dark: #0f172a;      /* Deep Blue Background */
+    --bg-panel: #1e293b;     /* Lighter Blue Panel */
+    --border: #334155;       /* Subtle Border */
+    --text-main: #e2e8f0;    /* White-ish Text */
+    --text-muted: #94a3b8;   /* Grey Text */
+    --accent: #facc15;       /* Duck Yellow */
+    --accent-hover: #eab308;
+    --font-ui: 'Inter', sans-serif;
+    --font-code: 'Fira Code', monospace;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    height: 100vh;
+    overflow: hidden; /* Prevent full page scroll */
+}
+
+/* --- 2. LAYOUT GRID --- */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- 3. SIDEBAR STYLES --- */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    flex-shrink: 0; /* Don't shrink */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.duck-emoji { font-size: 2rem; }
+.brand h1 { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 6px 12px;
+    border-radius: 99px;
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    width: fit-content;
+}
+
+.status-dot {
+    width: 8px; 
+    height: 8px; 
+    background-color: #22c55e; 
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.guide h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.icon-box {
+    width: 36px;
+    height: 36px;
+    background-color: var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.step p {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+/* --- 4. MAIN CONTENT AREA --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    overflow-y: auto; /* Allow scrolling inside main area */
+    padding: 3rem 2rem;
+}
+
+.workspace {
+    width: 100%;
+    max-width: 800px; /* Limit width so it looks good on big screens */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Window Frame (Mac Style) */
+.window-frame {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.window-header {
+    background-color: rgba(51, 65, 85, 0.5);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.dots { display: flex; gap: 6px; margin-right: 16px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ef4444; } .yellow { background: #eab308; } .green { background: #22c55e; }
+.filename { font-family: var(--font-code); font-size: 0.8rem; color: var(--text-muted); }
+
+.code-editor {
+    width: 100%;
+    height: 300px;
+    background-color: #0d1117; /* Very dark code bg */
+    border: none;
+    padding: 1.5rem;
+    color: #e2e8f0;
+    font-family: var(--font-code);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent);
+    color: var(--bg-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+button:active { transform: translateY(0); }
+
+/* Result Card */
+.result-card {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    min-height: 200px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.duck-img { width: 80px; margin-bottom: 1rem; }
+
+/* Markdown Content Styling */
+.markdown-body {
+    text-align: left;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+}
+
+.markdown-body pre {
+    background: #0d1117;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+}
+
+.markdown-body code {
+    font-family: var(--font-code);
+    color: var(--accent);
+}
+
+/* Animation */
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.bouncing { animation: bounce 1s infinite; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

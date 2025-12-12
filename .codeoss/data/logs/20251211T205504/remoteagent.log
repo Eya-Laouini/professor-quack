@@ -1,0 +1,11 @@
+2025-12-11 20:55:05.027 [info] 
+
+
+
+
+2025-12-11 20:55:05.042 [info] Extension host agent started.
+2025-12-11 20:55:05.061 [info] Started initializing default profile extensions in extensions installation folder. file:///home/laouinieya3/.codeoss/extensions
+2025-12-11 20:55:05.075 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/laouinieya3/.codeoss/extensions
+2025-12-11 20:55:22.593 [info] [127.0.0.1][e6fa1402][ManagementConnection] New connection established.
+2025-12-11 20:55:25.341 [info] [127.0.0.1][8bcfe737][ExtensionHostConnection] New connection established.
+2025-12-11 20:55:25.681 [info] [127.0.0.1][8bcfe737][ExtensionHostConnection] <1252> Launched Extension Host Process.

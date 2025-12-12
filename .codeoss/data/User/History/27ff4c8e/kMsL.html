@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Quack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1 class="title">🦆 Professor Quack</h1>
+            <p class="status"><span class="dot"></span> System Online (Gemini 2.5)</p>
+
+            <h2>How to Use</h2>
+            <ul class="steps">
+                <li>Paste your Python code into the editor on the right.</li>
+                <li>Click the "Review Code" button to summon the Professor.</li>
+                <li>Receive your expert code review.</li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <div class="editor-container">
+                <textarea id="codeInput" class="editor" placeholder="def hello():&#10;    print('Hello World')"></textarea>
+            </div>
+
+            <button class="review-btn" id="reviewBtn" onclick="reviewCode()">🚀 Review Code</button>
+
+            <div class="review-box" id="reviewBox">
+                <img src="https://img.icons8.com/color/96/rubber-duck.png" alt="duck" class="duck" id="duckImage">
+                <h3 id="statusTitle">Ready for Review</h3>
+                <div id="resultContent">
+                    <p>The Professor is waiting for your code. Paste it in the editor above and let the magic happen.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Quack AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="duck-emoji">🦆</span>
+                <h1>Professor Quack</h1>
+            </div>
+            
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>System Online (Gemini 2.5)</span>
+            </div>
+
+            <div class="guide">
+                <h2>How to Use</h2>
+                <div class="step">
+                    <div class="icon-box">✏️</div>
+                    <p>Paste your Python code.</p>
+                </div>
+                <div class="step">
+                    <div class="icon-box">🚀</div>
+                    <p>Click "Review Code".</p>
+                </div>
+                <div class="step">
+                    <div class="icon-box">📜</div>
+                    <p>Get roasted (gently).</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="workspace">
+                
+                <div class="window-frame">
+                    <div class="window-header">
+                        <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="filename">messy_code.py</span>
+                    </div>
+                    <textarea id="codeInput" class="code-editor" placeholder="# Paste your Python code here...&#10;def hello():&#10;    print('Quack!')"></textarea>
+                </div>
+
+                <button id="reviewBtn" onclick="reviewCode()">
+                    ⚡ Review Code
+                </button>
+
+                <div id="reviewBox" class="result-card">
+                    <img src="https://img.icons8.com/color/96/rubber-duck.png" alt="duck" id="duckImage" class="duck-img">
+                    <h3 id="statusTitle">Ready for Review</h3>
+                    <div id="resultContent" class="markdown-body">
+                        <p>The Professor is waiting. Paste your code above!</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

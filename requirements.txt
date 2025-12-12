@@ -1,0 +1,5 @@
+flask
+flask-cors
+google-cloud-aiplatform
+google-cloud-firestore
+gunicorn

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Quack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Extra style to make the sidebar icons look like buttons */
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .icon-box {
+            background-color: #334155;
+            min-width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        /* Remove default bullets */
+        ul.steps { list-style: none; padding: 0; }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1 class="title">🦆 Professor Quack</h1>
+            <p class="status"><span class="dot"></span> System Online (Gemini 2.5)</p>
+
+            <h2 style="margin-top: 2rem; color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">How to Use</h2>
+            
+            <ul class="steps">
+                <li class="step-item">
+                    <div class="icon-box">✏️</div>
+                    <div>Paste your Python code.</div>
+                </li>
+                <li class="step-item">
+                    <div class="icon-box">🚀</div>
+                    <div>Click "Review Code".</div>
+                </li>
+                <li class="step-item">
+                    <div class="icon-box">📜</div>
+                    <div>Get roasted (gently).</div>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <div class="editor-container">
+                <textarea id="codeInput" class="editor" placeholder="def hello():&#10;    print('Hello World')"></textarea>
+            </div>
+
+            <button class="review-btn" id="reviewBtn" onclick="reviewCode()">🚀 Review Code</button>
+
+            <div class="review-box" id="reviewBox">
+                <img src="https://img.icons8.com/color/96/rubber-duck.png" alt="duck" class="duck" id="duckImage">
+                <h3 id="statusTitle" style="color: #fff; margin-bottom: 0.5rem;">Ready for Review</h3>
+                <div id="resultContent" style="color: #94a3b8;">
+                    <p>The Professor is waiting for your code. Paste it in the editor above.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
