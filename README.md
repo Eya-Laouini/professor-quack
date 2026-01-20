@@ -104,7 +104,7 @@ Python 3.9+.
 
 **1. Clone the Repository**
 ```bash
-git clone [(https://github.com/Eya-Laouini/professor-quack.git)](https://github.com/Eya-Laouini/professor-quack.git)
+git clone https://github.com/Eya-Laouini/professor-quack.git
 cd professor-quack
 ```
 **2. Enable Google Cloud APIs**
